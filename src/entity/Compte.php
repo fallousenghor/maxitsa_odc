@@ -4,6 +4,9 @@ namespace Maxitsa\Entity;
 use Maxitsa\Abstract\AbstractEntity;
 
 class Compte extends AbstractEntity {
+    public function toJson(): string {
+        return json_encode($this->toArray());
+    }
     private string $id;
     private string $telephone;
     private float $solde;
@@ -40,12 +43,20 @@ class Compte extends AbstractEntity {
     public function setTypeCompte($type) { $this->typeCompte = $type; }
 
     public function toArray(): array {
+        $personneValue = null;
+        if (is_object($this->personne) && method_exists($this->personne, 'toArray')) {
+            $personneValue = $this->personne->toArray();
+        } elseif (is_array($this->personne) && isset($this->personne['id'])) {
+            $personneValue = $this->personne;
+        } elseif (is_string($this->personne)) {
+            $personneValue = ['id' => $this->personne];
+        }
         return [
             'id' => $this->id,
             'telephone' => $this->telephone,
             'typeCompte' => $this->typeCompte,
             'solde' => $this->solde,
-            'personne' => $this->personne && method_exists($this->personne, 'toArray') ? $this->personne->toArray() : null,
+            'personne' => $personneValue,
             'transactions' => array_map(fn($transaction) => $transaction->toArray(), $this->transactions)
         ];
     }

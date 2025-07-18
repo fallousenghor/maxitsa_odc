@@ -4,16 +4,17 @@ namespace Maxitsa\Abstract;
 use Maxitsa\Core\App;
 
 abstract class AbstractRepository {
-    protected static ?self $instance = null;
+protected static array $instances = [];
     protected \PDO $pdo;
     protected function __construct() {}
 
     
     public static function getInstance(): static {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        $class = static::class;
+        if (!isset(self::$instances[$class])) {
+            self::$instances[$class] = new static();
         }
-        return static::$instance;
+        return self::$instances[$class];
     }
 
     abstract public function insert($entity = null);

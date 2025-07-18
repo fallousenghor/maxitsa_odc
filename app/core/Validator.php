@@ -4,40 +4,61 @@ namespace Maxitsa\Core;
 use Maxitsa\Enum\ErrorMessage;
 
 class Validator {
+    
+    private static array $validators = [];
+
+    public static function getValidators(): array
+    {
+        if (empty(self::$validators)) {
+            self::$validators = [
+                'email' => function($value) { return filter_var($value, FILTER_VALIDATE_EMAIL) !== false; },
+                'empty' => function($value) { return empty($value); },
+                'telephone' => function($value) { return preg_match('/^(77|78)\d{7}$/', $value); },
+                'identite' => function($value) { return preg_match('/^(1|2)\d{12}$/', $value); },
+                'unique_telephone' => function($value) {
+                    $db = App::getDependency('core', 'Database')->getConnection();
+                    $stmt = $db->prepare('SELECT COUNT(*) FROM personne WHERE telephone = :telephone');
+                    $stmt->execute(['telephone' => $value]);
+                    return $stmt->fetchColumn() == 0;
+                },
+                'unique_identite' => function($value) {
+                    $db = App::getDependency('core', 'Database')->getConnection();
+                    $stmt = $db->prepare('SELECT COUNT(*) FROM personne WHERE num_identite = :num_identite');
+                    $stmt->execute(['num_identite' => $value]);
+                    return $stmt->fetchColumn() == 0;
+                }
+            ];
+        }
+        return self::$validators;
+    }
     public static function isEmail($email): bool
     {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+        return self::getValidators()['email']($email);
     }
 
     public static function isEmpty($value): bool
     {
-        return empty($value);
+        return self::getValidators()['empty']($value);
     }
 
     public static function isValidTelephone($telephone): bool
     {
-        return preg_match('/^(77|78)\d{7}$/', $telephone);
+        return self::getValidators()['telephone']($telephone);
     }
 
     public static function isValidIdentite($num_identite): bool
     {
-        return preg_match('/^(1|2)\d{12}$/', $num_identite);
+        return self::getValidators()['identite']($num_identite);
     }
 
     public static function isUniqueTelephone($telephone): bool
     {
-        $db = App::getDependency('core', 'Database')->getConnection();
-        $stmt = $db->prepare('SELECT COUNT(*) FROM personne WHERE telephone = :telephone');
-        $stmt->execute(['telephone' => $telephone]);
-        return $stmt->fetchColumn() == 0;
+        return self::getValidators()['unique_telephone']($telephone);
     }
 
     public static function isUniqueIdentite($num_identite): bool
     {
-        $db = App::getDependency('core', 'Database')->getConnection();
-        $stmt = $db->prepare('SELECT COUNT(*) FROM personne WHERE num_identite = :num_identite');
-        $stmt->execute(['num_identite' => $num_identite]);
-        return $stmt->fetchColumn() == 0;
+        return self::getValidators()['unique_identite']($num_identite);
     }
 
     public static function getErrorMessages() {

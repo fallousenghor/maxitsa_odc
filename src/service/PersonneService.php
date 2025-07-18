@@ -5,6 +5,7 @@ use Maxitsa\Core\App;
 use Maxitsa\Middlewares\AshPassWord;
 use Maxitsa\Repository\PersonneRepository;
 use Maxitsa\Entity\Personne;
+use Maxitsa\Service\CompteService;
 class PersonneService extends AbstractService {
     private PersonneRepository $personneRepository;
 
@@ -20,7 +21,7 @@ class PersonneService extends AbstractService {
             $personne->id = $data['id'];
             $personne->telephone = $data['telephone'];
            
-            $personne->password = AshPassWord::hashPassword($data['password']);
+            $personne->password = (new AshPassWord())($data['password']);
             $personne->num_identite = $data['num_identite'];
             $personne->photo_recto = $data['photo_recto'];
             $personne->photo_verso = $data['photo_verso'];
@@ -39,7 +40,7 @@ class PersonneService extends AbstractService {
                     'type_compte' => 'principal'
                 ];
                 $compteService = CompteService::getInstance();
-                $okCompte = $compteService->creerCompte($compteData); 
+                $okCompte = $compteService->creerCompte($compteData);
                 if ($okCompte) {
                     $db->commit();
                     return true;

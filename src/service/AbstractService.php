@@ -2,14 +2,15 @@
 namespace Maxitsa\Service;
 
 abstract class AbstractService {
-    protected static $instance = null;
+protected static array $instances = [];
     protected function __construct() {}
 
    
-    public static function getInstance(): static {
-        if (static::$instance === null) {
-            static::$instance = new static();
+    public static function getInstance() {
+        $class = static::class;
+        if (!isset(self::$instances[$class])) {
+            self::$instances[$class] = new static();
         }
-        return static::$instance;
+        return self::$instances[$class];
     }
 }

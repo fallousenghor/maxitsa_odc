@@ -19,7 +19,7 @@ class UserController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             extract($_POST, EXTR_SKIP);
             Validator::reset();
-            array_map(function($k,$v){if(Validator::isEmpty($v))Validator::addError($k,Session::getErrorMessage($k));},array_keys(['telephone'=>$telephone??'','password'=>$password??'']),['telephone'=>$telephone??'','password'=>$password??'']);
+            array_map(function($k,$v){if(!Validator::getValidators()['empty']($v))Validator::addError($k,Session::getErrorMessage($k));},array_keys(['telephone'=>$telephone??'','password'=>$password??'']),['telephone'=>$telephone??'','password'=>$password??'']);
             $errors=Validator::getErrors();
             $old=['telephone'=>$telephone??''];
             if(empty($errors)&&PersonneService::getInstance()->connecter($telephone??'', $password??''))redirect('accueil');
@@ -38,11 +38,11 @@ class UserController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $telephone = $_POST['telephone'] ?? '';
             Validator::reset();
-            if (Validator::isEmpty($telephone)) {
+            if (Validator::getValidators()['empty']($telephone)) {
                 Validator::addError('telephone', Session::getErrorMessage('telephone'));
-            } elseif (!Validator::isValidTelephone($telephone)) {
+            } elseif (!Validator::getValidators()['telephone']($telephone)) {
                 Validator::addError('telephone', Session::getErrorMessage('telephone_format'));
-            } elseif (!Validator::isUniqueTelephone($telephone)) {
+            } elseif (!Validator::getValidators()['unique_telephone']($telephone)) {
                 Validator::addError('telephone', 'Ce numéro est déjà associé à un compte');
             }
             $errors = Validator::getErrors();
@@ -108,7 +108,7 @@ class UserController extends AbstractController
                 'prenom', 'nom', 'telephone', 'adresse', 'num_identite', 'password', 'password_confirm', 'photo_recto', 'photo_verso'
             ];
             foreach ($requiredFields as $field) {
-                if (Validator::isEmpty($data[$field])) {
+                if (Validator::getValidators()['empty']($data[$field])) {
                     Validator::addError($field, Session::getErrorMessage($field) ?: 'Ce champ est requis.');
                 }
             }

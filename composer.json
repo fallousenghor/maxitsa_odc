@@ -5,7 +5,7 @@
         "psr-4": {
             "Maxitsa\\Core\\": "app/core/",
             "Maxitsa\\App\\": "app/",
-            "Maxitsa\\Middleware\\": "middlewares/",
+            "Maxitsa\\Middlewares\\": "app/core/middlewares/",
             "Maxitsa\\Abstract\\": "app/core/abstract/",
             "Maxitsa\\Controller\\": "src/controller/",
             "Maxitsa\\Entity\\": "src/entity/",

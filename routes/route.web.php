@@ -17,7 +17,7 @@ return [
     ],
     'POST' => [
         '/signin' => [UserController::class, 'signin'],
-        '/signup' => [UserController::class, 'signup'],
+        '/signup' => [UserController::class, 'signup', "middlewares" => ['ahspw']],
         '/add-secondary-account' => [UserController::class, 'addSecondaryAccount'],
         '/changer-compte' => [HomeController::class, 'changerCompte'],
     ]

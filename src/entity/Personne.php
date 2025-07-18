@@ -5,10 +5,13 @@ use Maxitsa\Abstract\AbstractEntity;
 
 
 class Personne extends AbstractEntity {
+    public function toJson(): string {
+        return json_encode($this->toArray());
+    }
     protected string $id;
     protected string $telephone;
     protected string $password;
-    protected string $numIdentite;
+    protected string $num_identite;
     protected string $photoRecto;
     protected string $photoVerso;
     protected string $prenom;
@@ -27,7 +30,7 @@ class Personne extends AbstractEntity {
             'id' => $this->id,
             'telephone' => $this->telephone,
             'password' => $this->password,
-            'numIdentite' => $this->numIdentite,
+            'num_identite' => $this->num_identite,
             'photoRecto' => $this->photoRecto,
             'photoVerso' => $this->photoVerso,
             'prenom' => $this->prenom,
@@ -44,7 +47,7 @@ class Personne extends AbstractEntity {
         string $id = '',
         string $telephone = '',
         string $password = '',
-        string $numIdentite = '',
+        string $num_identite = '',
         string $photoRecto = '',
         string $photoVerso = '',
         string $prenom = '',
@@ -56,7 +59,7 @@ class Personne extends AbstractEntity {
         $this->id = $id;
         $this->telephone = $telephone;
         $this->password = $password;
-        $this->numIdentite = $numIdentite;
+        $this->num_identite = $num_identite;
         $this->photoRecto = $photoRecto;
         $this->photoVerso = $photoVerso;
         $this->prenom = $prenom;
@@ -71,7 +74,7 @@ class Personne extends AbstractEntity {
             $data['id'] ?? '',
             $data['telephone'] ?? '',
             $data['password'] ?? '',
-            $data['numIdentite'] ?? '',
+            $data['num_identite'] ?? '',
             $data['photoRecto'] ?? '',
             $data['photoVerso'] ?? '',
             $data['prenom'] ?? '',

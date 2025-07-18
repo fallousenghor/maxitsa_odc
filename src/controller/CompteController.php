@@ -4,7 +4,7 @@
 use Maxitsa\Abstract\AbstractController;
 use Maxitsa\Service\CompteService;
 
-class CompteController {
+class CompteController extends AbstractController {
       public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [

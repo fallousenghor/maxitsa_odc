@@ -4,6 +4,9 @@ namespace Maxitsa\Entity;
 use Maxitsa\Abstract\AbstractEntity;
 
 class Transaction extends AbstractEntity {
+    public function toJson(): string {
+        return json_encode($this->toArray());
+    }
     private string $id;
     private float $montant;
     private Compte $compte;

@@ -22,8 +22,10 @@ class CompteService extends AbstractService {
         $compte->setId($data['id']);
         $compte->setTelephone($data['telephone']);
         $compte->setSolde($data['solde']);
-        $compte->setPersonne($data['personne']);
-        $compte->setTypeCompte($data['type_compte']);
+        // On passe un tableau avec l'id pour garantir le mapping
+        $personneId = $data['personne_id'] ?? $data['personne'] ?? null;
+        $compte->setPersonne(['id' => $personneId]);
+        $compte->setTypeCompte($data['type_compte'] ?? $data['typeCompte'] ?? null);
         return $this->compteRepository->insert($compte);
     }
 }
