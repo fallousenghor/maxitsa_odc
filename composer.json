@@ -1,0 +1,23 @@
+{
+    "name": "fallou/maxitsa",
+    "description": "Projet PHP MVC avec Composer",
+    "autoload": {
+        "psr-4": {
+            "Maxitsa\\Core\\": "app/core/",
+            "Maxitsa\\App\\": "app/",
+            "Maxitsa\\Middleware\\": "middlewares/",
+            "Maxitsa\\Abstract\\": "app/core/abstract/",
+            "Maxitsa\\Controller\\": "src/controller/",
+            "Maxitsa\\Entity\\": "src/entity/",
+            "Maxitsa\\Enum\\": "src/enums/",
+            "Maxitsa\\Repository\\": "src/repository/",
+            "Maxitsa\\Service\\": "src/service/",
+            "Maxitsa\\Config\\": "app/config/"
+
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "twilio/sdk": "^8.6"
+    }
+}
