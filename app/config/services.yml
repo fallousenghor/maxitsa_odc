@@ -1,0 +1,14 @@
+core:
+  Database: Maxitsa\Core\Database
+  Session: Maxitsa\Core\Session
+  Validator: Maxitsa\Core\Validator
+repository:
+  PersonneRepository: Maxitsa\Repository\PersonneRepository
+  CompteRepository: Maxitsa\Repository\CompteRepository
+controller:
+  UserController: Maxitsa\Controller\UserController
+  HomeController: Maxitsa\Controller\HomeController
+service:
+  PersonneService: Maxitsa\Service\PersonneService
+  CompteService: Maxitsa\Service\CompteService
+  TransactionService: Maxitsa\Service\TransactionService
