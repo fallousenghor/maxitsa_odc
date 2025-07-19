@@ -12,7 +12,9 @@
             "Maxitsa\\Enum\\": "src/enums/",
             "Maxitsa\\Repository\\": "src/repository/",
             "Maxitsa\\Service\\": "src/service/",
-            "Maxitsa\\Config\\": "app/config/"
+            "Maxitsa\\Config\\": "app/config/",
+            "Maxitsa\\Migrations\\": "migrations/",
+            "Maxitsa\\Seeder\\": "seeder/"
 
         }
     },
@@ -20,5 +22,9 @@
         "vlucas/phpdotenv": "^5.5",
         "twilio/sdk": "^8.6",
         "symfony/yaml": "^7.3"
+    },
+    "scripts": {
+        "database:migrate": "php scripts/migrate.php",
+        "database:seed": "php scripts/seed.php"
     }
 }

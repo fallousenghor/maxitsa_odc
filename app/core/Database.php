@@ -8,7 +8,7 @@ class Database {
     private $pdo;
 
     private function __construct() {
-        // global $DB_DSN, $DB_USER, $DB_PASS;
+       
         
         try {
             $this->pdo = new PDO("pgsql:host=localhost;dbname=maxitsa;port=5432", "admin", "gallas", [

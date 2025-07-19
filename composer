@@ -1,0 +1,13 @@
+
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$cmd = $argv[1] ?? null;
+if ($cmd === 'database:migrate') {
+    require __DIR__ . '/scripts/migrate.php';
+} elseif ($cmd === 'database:seed') {
+    require __DIR__ . '/scripts/seed.php';
+} else {
+    echo "Commande inconnue.\n";
+}

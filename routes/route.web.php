@@ -12,6 +12,7 @@ return [
         '/accueil' => [HomeController::class, 'index',"middlewares" => ['auth']],
         '/transactions' => [HomeController::class, 'transactions',"middlewares" => ['auth']],
         '/tout-historique' => [HomeController::class, 'toutHistorique', "middlewares" => ['auth']],
+        '/transfert' => [HomeController::class, 'showTransfertForm', "middlewares" => ['auth']],
         '/error404' => [ErrorController::class, 'error404'],
         '/logout' => [UserController::class, 'logout'],
     ],

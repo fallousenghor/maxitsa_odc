@@ -5,6 +5,19 @@ require_once dirname(__DIR__,2) . '/app/config/helpers.php';
 use Maxitsa\Abstract\AbstractController;
 
 class HomeController extends AbstractController {
+    public function showTransfertForm()
+    {
+        $user = $_SESSION['user'] ?? null;
+        if (!$user) {
+            redirect('login');
+        }
+        $compte_courant = $_SESSION['compte'] ?? null;
+        $comptes = $this->getComptesByPersonneId($user['id']);
+        $this->renderHtml('transfert_form.html.php', [
+            'user_telephone' => $compte_courant['telephone'] ?? '',
+            'user_comptes' => $comptes
+        ], 'Transfert');
+    }
     
     public function toutHistorique()
     {
@@ -110,8 +123,5 @@ class HomeController extends AbstractController {
                 exit;
             }
         }
-       
-        redirect('accueil');
-        exit;
     }
 }
