@@ -71,7 +71,8 @@ class TransactionService extends AbstractService {
             return true;
         } catch (\Exception $e) {
             $db->rollBack();
-            return $e->getMessage();
+            return $e->getMessage(); 
         }
     }
 }
+
