@@ -21,6 +21,7 @@ return [
         '/signup' => [UserController::class, 'signup', "middlewares" => ['ahspw']],
         '/add-secondary-account' => [UserController::class, 'addSecondaryAccount'],
         '/changer-compte' => [HomeController::class, 'changerCompte'],
+        '/transfert' => [HomeController::class, 'transfert', "middlewares" => ['auth']],
     ]
 ];
 

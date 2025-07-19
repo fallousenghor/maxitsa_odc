@@ -1,6 +1,11 @@
 <!-- Nouveau formulaire transfert, design adapté à l'application -->
 <div class="max-w-lg mx-auto mt-12">
   <div class="bg-gradient-to-br from-orange-400 to-yellow-500 rounded-2xl shadow-xl p-8 border border-orange-300">
+    <?php if (isset($message) && $message): ?>
+      <div class="mb-4 p-3 rounded bg-white text-orange-700 font-semibold text-center shadow">
+        <?= htmlspecialchars($message) ?>
+      </div>
+    <?php endif; ?>
     <h2 class="text-2xl font-bold text-center text-white mb-8">Transfert d'argent</h2>
     <form action="/transfert" method="POST" class="space-y-6">
       <div>

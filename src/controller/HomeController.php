@@ -5,6 +5,42 @@ require_once dirname(__DIR__,2) . '/app/config/helpers.php';
 use Maxitsa\Abstract\AbstractController;
 
 class HomeController extends AbstractController {
+    public function transfert()
+    {
+        $user = $_SESSION['user'] ?? null;
+        $compte_courant = $_SESSION['compte'] ?? null;
+        if (!$user || !$compte_courant) {
+            redirect('login');
+        }
+        $typeTransfert = $_POST['type_transfert'] ?? '';
+        $montant = isset($_POST['montant']) ? (float)$_POST['montant'] : 0;
+        $sourceTelephone = $compte_courant['telephone'];
+        $destinataireTelephone = '';
+        if ($typeTransfert === 'numero') {
+            $destinataireTelephone = $_POST['destinataire'] ?? '';
+        } elseif ($typeTransfert === 'secondaire') {
+            $destinataireTelephone = $_POST['compte_secondaire'] ?? '';
+        }
+        $message = null;
+        if ($typeTransfert && $sourceTelephone && $destinataireTelephone && $montant > 0) {
+            $service = new \Maxitsa\Service\TransactionService();
+            $result = $service->transferer($typeTransfert, $sourceTelephone, $destinataireTelephone, $montant);
+            if ($result === true) {
+                $message = "Transfert réussi !";
+            } else {
+                $message = "Erreur : " . $result;
+            }
+        } else {
+            $message = "Veuillez remplir tous les champs.";
+        }
+        // Recharge les comptes pour le formulaire
+        $comptes = $this->getComptesByPersonneId($user['id']);
+        $this->renderHtml('transfert_form.html.php', [
+            'user_telephone' => $sourceTelephone,
+            'user_comptes' => $comptes,
+            'message' => $message
+        ], 'Transfert');
+    }
     public function showTransfertForm()
     {
         $user = $_SESSION['user'] ?? null;

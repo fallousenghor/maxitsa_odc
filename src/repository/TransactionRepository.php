@@ -26,7 +26,7 @@ class TransactionRepository extends AbstractRepository {
         return method_exists($transaction, 'toJson') ? $transaction->toJson() : json_encode($transaction);
     }
     
-    private static array $transactions = null;
+    private static ?array $transactions = null;
 
  
     public function save(Transaction $transaction): void {

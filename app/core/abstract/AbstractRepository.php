@@ -6,7 +6,7 @@ use Maxitsa\Core\App;
 abstract class AbstractRepository {
 protected static array $instances = [];
     protected \PDO $pdo;
-    protected function __construct() {}
+public function __construct() {}
 
     
     public static function getInstance(): static {
