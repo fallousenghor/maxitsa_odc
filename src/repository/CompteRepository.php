@@ -10,8 +10,9 @@ class CompteRepository extends AbstractRepository{
 
      public function insert($compte = null){
          $db = App::getDependency('core', 'Database')->getConnection();
-         if ($compte && method_exists($compte, 'toArray')) {
-             $data = $compte->toArray();
+         // On attend un tableau associatif, pas d'objet
+         if (is_array($compte)) {
+             $data = $compte;
          } else {
              $data = (array)$compte;
          }
