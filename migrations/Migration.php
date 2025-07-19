@@ -1,14 +1,17 @@
 <?php
+
 namespace Maxitsa\Migrations;
 
-use PDO;
+require_once dirname(__DIR__) . '/app/config/bootstrap.php';
+require_once dirname(__DIR__) . '/app/config/env.php';
 
+use PDO;
 class Migration {
     public static function migrate(PDO $pdo) {
         $queries = [
             
             "CREATE TABLE IF NOT EXISTS personne (
-                id VARCHAR(255) PRIMARY KEY,
+                id SERIAL PRIMARY KEY,
                 telephone VARCHAR(20),
                 password VARCHAR(255),
                 num_identite VARCHAR(50),
@@ -20,19 +23,19 @@ class Migration {
                 type_personne VARCHAR(50)
             );",
             "CREATE TABLE IF NOT EXISTS compte (
-                id VARCHAR(255) PRIMARY KEY,
+                id SERIAL PRIMARY KEY,
                 telephone VARCHAR(20),
                 solde FLOAT,
-                personne_id VARCHAR(255),
+                personne_id INTEGER,
                 type_compte VARCHAR(50),
                 FOREIGN KEY (personne_id) REFERENCES personne(id)
             );",
             "CREATE TABLE IF NOT EXISTS transaction (
-                id VARCHAR(255) PRIMARY KEY,
-                compte_id VARCHAR(255),
+                id SERIAL PRIMARY KEY,
+                compte_id INTEGER,
                 montant FLOAT,
                 date TIMESTAMP,
-                type_transaction VARCHAR(50),
+                type VARCHAR(50),
                 FOREIGN KEY (compte_id) REFERENCES compte(id)
             );",
             

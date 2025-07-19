@@ -10,14 +10,14 @@ class CompteRepository extends AbstractRepository{
 
      public function insert($compte = null){
          $db = App::getDependency('core', 'Database')->getConnection();
-         // On attend un tableau associatif, pas d'objet
+       
          if (is_array($compte)) {
              $data = $compte;
          } else {
              $data = (array)$compte;
          }
          $stmt = $db->prepare("INSERT INTO compte (id, telephone, solde, personne_id, type_compte) VALUES (:id, :telephone, :solde, :personne_id, :type_compte)");
-         // Correction du mapping personne_id : toujours une string
+      
          $personneId = null;
          if (isset($data['personne_id'])) {
              $personneId = $data['personne_id'];

@@ -3,12 +3,7 @@ namespace Maxitsa\Abstract;
 session_start();
 abstract class AbstractController{
 
-    /**
-     * Instancie une entité à partir d'un tableau de données
-     * @param string $class Nom complet de la classe (ex: Personne::class)
-     * @param array $data Données à injecter
-     * @return object Instance de l'entité
-     */
+  
     protected function makeEntity(string $class, array $data): object {
         if (method_exists($class, 'toObject')) {
             return $class::toObject($data);

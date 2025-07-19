@@ -7,15 +7,15 @@ class Compte extends AbstractEntity {
     public function toJson(): string {
         return json_encode($this->toArray());
     }
-    private string $id;
+    private int $id;
     private string $telephone;
     private float $solde;
-    private $personne; // Personne
-    private array $transactions = []; // Transaction[]
+    private $personne; 
+    private array $transactions = []; 
     private string $typeCompte;
 
     public function __construct(
-        string $id = '',
+        int $id = 1,
         string $telephone = '',
         float $solde = 0.0,
         $personne = null,

@@ -1,10 +1,13 @@
 <?php
 
+require_once __DIR__ . '/env.php';
 function redirect($path)
 {
-    $baseUrl = getenv('BASE_URL');
+    global $BASE_URL;
+    $baseUrl = $BASE_URL ?? getenv('BASE_URL');
     if (!$baseUrl) {
-        $baseUrl = 'http://localhost:8082'; 
+       
+        die('BASE_URL non défini dans .env');
     }
     $baseUrl = rtrim($baseUrl, '/;');
     $path = ltrim($path, '/');

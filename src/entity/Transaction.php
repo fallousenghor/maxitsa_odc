@@ -7,13 +7,13 @@ class Transaction extends AbstractEntity {
     public function toJson(): string {
         return json_encode($this->toArray());
     }
-    private string $id;
+    private int $id;
     private float $montant;
     private Compte $compte;
     private string $type;
     private \DateTime $date;
 
-    public function __construct(string $id, float $montant, Compte $compte, string $type, \DateTime $date) {
+    public function __construct(int $id, float $montant, Compte $compte, string $type, \DateTime $date) {
         $this->id = $id;
         $this->montant = $montant;
         $this->compte = $compte;

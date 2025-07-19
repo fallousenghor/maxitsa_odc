@@ -8,7 +8,7 @@ class Personne extends AbstractEntity {
     public function toJson(): string {
         return json_encode($this->toArray());
     }
-    protected string $id;
+    protected int $id;
     protected string $telephone;
     protected string $password;
     protected string $num_identite;
@@ -44,7 +44,7 @@ class Personne extends AbstractEntity {
  
 
     public function __construct(
-        string $id = '',
+        int $id = 1,
         string $telephone = '',
         string $password = '',
         string $num_identite = '',
@@ -71,7 +71,7 @@ class Personne extends AbstractEntity {
 
     public static function toObject(array $data): object {
         return new static(
-            $data['id'] ?? '',
+            isset($data['id']) ? (int)$data['id'] : 0,
             $data['telephone'] ?? '',
             $data['password'] ?? '',
             $data['num_identite'] ?? '',

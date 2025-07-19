@@ -5,10 +5,6 @@ use Maxitsa\Entity\Compte;
 use Maxitsa\Repository\CompteRepository;
 
 
-
-
-
-
 class CompteService extends AbstractService {
     private CompteRepository $compteRepository;
 
@@ -18,7 +14,7 @@ class CompteService extends AbstractService {
   
 
     public function creerCompte(array $data): bool {
-        // Extraction stricte de l'id utilisateur
+       
         $personneId = null;
         if (isset($data['personne_id']) && !empty($data['personne_id'])) {
             $personneId = $data['personne_id'];
@@ -36,10 +32,10 @@ class CompteService extends AbstractService {
             }
         }
         if (empty($personneId) || !is_string($personneId)) {
-            // On refuse la création si l'id est absent ou invalide
+          
             return false;
         }
-        // Préparation des données pour l'insertion sans utiliser toArray/toObject/toJson
+        
         $insertData = [
             'id' => $data['id'] ?? null,
             'telephone' => $data['telephone'] ?? null,

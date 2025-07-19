@@ -167,7 +167,7 @@
             <a href="/transactions" style="text-decoration: none;">
                 <div class="card-hover gradient-bg rounded-2xl p-8 text-white shadow-xl cursor-pointer md:col-span-2 lg:col-span-1">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-2xl font-bold">derniers transactions</h2>
+                        <h2 class="text-2xl font-bold">Dernières transactions</h2>
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                             <i class="fas fa-history text-2xl"></i>
                         </div>

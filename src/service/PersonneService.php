@@ -18,16 +18,15 @@ class PersonneService extends AbstractService {
         try {
             $db->beginTransaction();
             $personne = new Personne();
-            $personne->id = $data['id'];
-            $personne->telephone = $data['telephone'];
-           
-            $personne->password = (new AshPassWord())($data['password']);
-            $personne->num_identite = $data['num_identite'];
-            $personne->photo_recto = $data['photo_recto'];
-            $personne->photo_verso = $data['photo_verso'];
-            $personne->prenom = $data['prenom'];
-            $personne->nom = $data['nom'];
-            $personne->adresse = $data['adresse'];
+            $personne->id = isset($data['id']) ? (int)$data['id'] : 0;
+            $personne->telephone = isset($data['telephone']) ? (string)$data['telephone'] : '';
+            $personne->password = isset($data['password']) ? (new AshPassWord())($data['password']) : '';
+            $personne->num_identite = isset($data['num_identite']) ? (string)$data['num_identite'] : '';
+            $personne->photo_recto = isset($data['photo_recto']) ? (string)$data['photo_recto'] : '';
+            $personne->photo_verso = isset($data['photo_verso']) ? (string)$data['photo_verso'] : '';
+            $personne->prenom = isset($data['prenom']) ? (string)$data['prenom'] : '';
+            $personne->nom = isset($data['nom']) ? (string)$data['nom'] : '';
+            $personne->adresse = isset($data['adresse']) ? (string)$data['adresse'] : '';
             $personne->typePersonne = 'client';
             $okPersonne = $this->personneRepository->insert($personne);
 

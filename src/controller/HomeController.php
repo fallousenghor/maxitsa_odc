@@ -5,6 +5,38 @@ require_once dirname(__DIR__,2) . '/app/config/helpers.php';
 use Maxitsa\Abstract\AbstractController;
 
 class HomeController extends AbstractController {
+    public function annulerTransfert()
+    {
+        $user = $_SESSION['user'] ?? null;
+        if (!$user) {
+            redirect('login');
+        }
+        $transactionId = $_POST['transaction_id'] ?? null;
+        $message = null;
+        if ($transactionId) {
+            $service = new \Maxitsa\Service\TransactionService();
+            $result = $service->annulerTransfert($transactionId);
+            if ($result === true) {
+                $message = "Transfert annulé et fonds retournés !";
+            } else {
+                $message = "Erreur : " . $result;
+            }
+        } else {
+            $message = "Identifiant de transaction manquant.";
+        }
+        // Recharge l'historique
+        $transactions = [];
+        if (isset($_SESSION['compte']['id'])) {
+            $db = App::getDependency('core', 'Database')->getConnection();
+            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id ORDER BY date DESC LIMIT 10");
+            $stmt->execute(['compte_id' => $_SESSION['compte']['id']]);
+            $transactions = $stmt->fetchAll();
+        }
+        $this->renderHtml('layout/tout.historique.web.php', [
+            'transactions' => $transactions,
+            'message' => $message
+        ], "Tout l'historique");
+    }
     public function transfert()
     {
         $user = $_SESSION['user'] ?? null;
@@ -33,7 +65,7 @@ class HomeController extends AbstractController {
         } else {
             $message = "Veuillez remplir tous les champs.";
         }
-        // Recharge les comptes pour le formulaire
+       
         $comptes = $this->getComptesByPersonneId($user['id']);
         $this->renderHtml('transfert_form.html.php', [
             'user_telephone' => $sourceTelephone,
@@ -60,13 +92,13 @@ class HomeController extends AbstractController {
         
         $user = $_SESSION['user'] ?? null;
         if (!$user) {
-            header('Location: /login');
-            exit;
+            redirect('login');
+            return;
         }
         $transactions = [];
         if (isset($_SESSION['compte']['id'])) {
             $db = App::getDependency('core', 'Database')->getConnection();
-            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id ORDER BY date DESC");
+            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id ORDER BY date DESC LIMIT 10");
             $stmt->execute(['compte_id' => $_SESSION['compte']['id']]);
             $transactions = $stmt->fetchAll();
         }
@@ -97,7 +129,7 @@ class HomeController extends AbstractController {
         $transactions = [];
         if (isset($_SESSION['compte']['id'])) {
             $db = App::getDependency('core', 'Database')->getConnection();
-            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id");
+            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id ORDER BY date DESC LIMIT 10");
             $stmt->execute(['compte_id' => $_SESSION['compte']['id']]);
             $transactions = $stmt->fetchAll();
         }
@@ -124,16 +156,16 @@ class HomeController extends AbstractController {
         
         $user = $_SESSION['user'] ?? null;
         if (!$user) {
-            header('Location: /login');
-            exit;
+            redirect('login');
+            return;
         }
         $transactions = [];
         if (isset($_SESSION['compte']['id'])) {
             $db = App::getDependency('core', 'Database')->getConnection();
-            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id  limit 2");
+            $stmt = $db->prepare("SELECT * FROM transaction WHERE compte_id = :compte_id ORDER BY date DESC LIMIT 10");
             $stmt->execute(['compte_id' => $_SESSION['compte']['id']]);
             $transactions = $stmt->fetchAll();
-        } 
+        }
         $this->renderHtml('layout/transction.web.php', ['transactions' => $transactions], 'Transactions');
     }
 
