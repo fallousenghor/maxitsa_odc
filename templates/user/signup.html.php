@@ -38,8 +38,6 @@
                 $session = Session::getInstance();
                 $errors = $session->get('errors') ?? [];
                 $old = $session->get('old') ?? [];
-                $session->unset('errors');
-                $session->unset('old');
                 ?>
                
                 <div class="form-section">
@@ -285,18 +283,16 @@
                 </div>
             </form>
             <div class="text-center mt-6 text-color-gray-600">
+
+                <?php
+                $session->unset('errors');
+                $session->unset('old');
+                ?>
                 <a  href="/login">retour a la page de connexion</a>
             </div>
         </div>
-        
     </div>
-
-   
-
- 
 </body>
-</body>
-
 </html>
 
  <style>

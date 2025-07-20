@@ -11,19 +11,26 @@ class PersonneRepository extends AbstractRepository {
     public function insert($entity = null) {
         $db = App::getDependency('core', 'Database')->getConnection();
         $data = method_exists($entity, 'toArray') ? $entity->toArray() : (array)$entity;
-        $stmt = $db->prepare("INSERT INTO personne (id, telephone, password, num_identite, photo_recto, photo_verso, prenom, nom, adresse, type_personne) VALUES (:id, :telephone, :password, :num_identite, :photo_recto, :photo_verso, :prenom, :nom, :adresse, :type_personne)");
-        return $stmt->execute([
-            'id' => $data['id'] ?? null,
+        // Log temporaire pour debug
+        error_log('PersonneRepository::insert data: ' . print_r($data, true));
+        $stmt = $db->prepare("INSERT INTO personne (telephone, password, num_identite, photo_recto, photo_verso, prenom, nom, adresse, type_personne) VALUES (:telephone, :password, :num_identite, :photo_recto, :photo_verso, :prenom, :nom, :adresse, :type_personne)");
+        $result = $stmt->execute([
             'telephone' => $data['telephone'] ?? null,
             'password' => $data['password'] ?? null,
             'num_identite' => $data['num_identite'] ?? null,
-            'photo_recto' => $data['photoRecto'] ?? $data['photo_recto'] ?? null,
-            'photo_verso' => $data['photoVerso'] ?? $data['photo_verso'] ?? null,
+            'photo_recto' => $data['photo_recto'] ?? null,
+            'photo_verso' => $data['photo_verso'] ?? null,
             'prenom' => $data['prenom'] ?? null,
             'nom' => $data['nom'] ?? null,
             'adresse' => $data['adresse'] ?? null,
-            'type_personne' => $data['typePersonne'] ?? $data['type_personne'] ?? 'client'
+            'type_personne' => $data['type_personne'] ?? 'client'
         ]);
+        if (!$result) {
+            $errorInfo = $stmt->errorInfo();
+            error_log('Erreur PDO : ' . print_r($errorInfo, true));
+            \Maxitsa\Core\Session::getInstance()->set('errors', ['global' => ["Erreur PDO : " . ($errorInfo[2] ?? 'Erreur inconnue') . " | Data: " . print_r($data, true)]]);
+        }
+        return $result;
     }
     public function toObject(array $row): object {
         return Personne::toObject($row);

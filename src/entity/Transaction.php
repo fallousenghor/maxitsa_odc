@@ -4,9 +4,6 @@ namespace Maxitsa\Entity;
 use Maxitsa\Abstract\AbstractEntity;
 
 class Transaction extends AbstractEntity {
-    public function toJson(): string {
-        return json_encode($this->toArray());
-    }
     private int $id;
     private float $montant;
     private Compte $compte;
@@ -19,6 +16,10 @@ class Transaction extends AbstractEntity {
         $this->compte = $compte;
         $this->type = $type;
         $this->date = $date;
+    }
+
+    public function toJson(): string {
+        return json_encode($this->toArray());
     }
 
     public function getMontant(): float { return $this->montant; }
@@ -42,7 +43,7 @@ class Transaction extends AbstractEntity {
 
     public static function toObject(array $data): object {
         return new static(
-            $data['id'] ?? '',
+            isset($data['id']) ? (int)$data['id'] : 1,
             (float)($data['montant'] ?? 0),
             isset($data['compte']) && is_array($data['compte']) ? Compte::toObject($data['compte']) : null,
             $data['type'] ?? '',
