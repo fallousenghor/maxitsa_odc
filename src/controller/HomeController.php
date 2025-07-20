@@ -59,6 +59,7 @@ class HomeController extends AbstractController {
             $result = $service->transferer($typeTransfert, $sourceTelephone, $destinataireTelephone, $montant);
             if ($result === true) {
                 $message = "Transfert réussi !";
+                redirect('accueil');
             } else {
                 $message = "Erreur : " . $result;
             }
