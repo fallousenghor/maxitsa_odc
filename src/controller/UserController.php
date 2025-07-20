@@ -51,7 +51,6 @@ class UserController extends AbstractController
                 $user = $session->get('user');
                 if ($user) {
                     $data = [
-                        'id' => uniqid(),
                         'telephone' => $telephone,
                         'solde' => 0,
                         'personne' => $user['id'], 
@@ -83,6 +82,7 @@ class UserController extends AbstractController
     }
     public function signup()
     {
+        // ...
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             extract($_POST, EXTR_SKIP);
             $photoRectoPath = (isset($_FILES['photo_recto']) && $_FILES['photo_recto']['error'] === UPLOAD_ERR_OK)
@@ -90,7 +90,6 @@ class UserController extends AbstractController
             $photoVersoPath = (isset($_FILES['photo_verso']) && $_FILES['photo_verso']['error'] === UPLOAD_ERR_OK)
                 ? UploadService::upload($_FILES['photo_verso'], __DIR__ . '/../../../public/images/uploads/') : '';
             $data = [
-                'id' => uniqid(),
                 'telephone' => $telephone ?? '',
                 'password' => $password ?? '',
                 'password_confirm' => $password_confirm ?? '',
@@ -122,9 +121,11 @@ class UserController extends AbstractController
                     if (PersonneService::getInstance()->inscrire($data)) {
                         redirect('login?signup');
                     } else {
+                        error_log('Echec inscription: $data = ' . print_r($data, true) . ' | erreurs session = ' . print_r(Session::getInstance()->get('errors'), true));
                         Validator::addError('global', 'Erreur lors de l\'inscription.');
                     }
                 } catch (\PDOException $e) {
+                    error_log('Exception inscription: ' . $e->getMessage() . ' | code: ' . $e->getCode());
                     if ($e->getCode() === '23505') {
                         Validator::addError('telephone', 'Ce numéro est déjà associé à un compte');
                     } else {

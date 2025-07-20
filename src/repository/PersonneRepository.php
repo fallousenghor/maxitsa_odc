@@ -11,19 +11,21 @@ class PersonneRepository extends AbstractRepository {
     public function insert($entity = null) {
         $db = App::getDependency('core', 'Database')->getConnection();
         $data = method_exists($entity, 'toArray') ? $entity->toArray() : (array)$entity;
-        // Log temporaire pour debug
-        error_log('PersonneRepository::insert data: ' . print_r($data, true));
+        // Ne garder que les champs attendus par la requête SQL
+        $fields = ['telephone','password','num_identite','photo_recto','photo_verso','prenom','nom','adresse','type_personne'];
+        $filtered = array_intersect_key($data, array_flip($fields));
+        error_log('PersonneRepository::insert filtered: ' . print_r($filtered, true));
         $stmt = $db->prepare("INSERT INTO personne (telephone, password, num_identite, photo_recto, photo_verso, prenom, nom, adresse, type_personne) VALUES (:telephone, :password, :num_identite, :photo_recto, :photo_verso, :prenom, :nom, :adresse, :type_personne)");
         $result = $stmt->execute([
-            'telephone' => $data['telephone'] ?? null,
-            'password' => $data['password'] ?? null,
-            'num_identite' => $data['num_identite'] ?? null,
-            'photo_recto' => $data['photo_recto'] ?? null,
-            'photo_verso' => $data['photo_verso'] ?? null,
-            'prenom' => $data['prenom'] ?? null,
-            'nom' => $data['nom'] ?? null,
-            'adresse' => $data['adresse'] ?? null,
-            'type_personne' => $data['type_personne'] ?? 'client'
+            'telephone' => $filtered['telephone'] ?? null,
+            'password' => $filtered['password'] ?? null,
+            'num_identite' => $filtered['num_identite'] ?? null,
+            'photo_recto' => $filtered['photo_recto'] ?? null,
+            'photo_verso' => $filtered['photo_verso'] ?? null,
+            'prenom' => $filtered['prenom'] ?? null,
+            'nom' => $filtered['nom'] ?? null,
+            'adresse' => $filtered['adresse'] ?? null,
+            'type_personne' => $filtered['type_personne'] ?? 'client'
         ]);
         if (!$result) {
             $errorInfo = $stmt->errorInfo();

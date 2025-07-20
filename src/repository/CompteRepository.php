@@ -10,14 +10,12 @@ class CompteRepository extends AbstractRepository{
 
      public function insert($compte = null){
          $db = App::getDependency('core', 'Database')->getConnection();
-       
          if (is_array($compte)) {
              $data = $compte;
          } else {
              $data = (array)$compte;
          }
-         $stmt = $db->prepare("INSERT INTO compte (id, telephone, solde, personne_id, type_compte) VALUES (:id, :telephone, :solde, :personne_id, :type_compte)");
-      
+         $stmt = $db->prepare("INSERT INTO compte (telephone, solde, personne_id, type_compte) VALUES (:telephone, :solde, :personne_id, :type_compte)");
          $personneId = null;
          if (isset($data['personne_id'])) {
              $personneId = $data['personne_id'];
@@ -25,9 +23,10 @@ class CompteRepository extends AbstractRepository{
              $personneId = $data['personne']['id'];
          } elseif (isset($data['personne']) && is_string($data['personne'])) {
              $personneId = $data['personne'];
+         } elseif (isset($data['personne']) && is_object($data['personne']) && method_exists($data['personne'], 'getId')) {
+             $personneId = $data['personne']->getId();
          }
          return $stmt->execute([
-             'id' => $data['id'] ?? ($compte->getId() ?? null),
              'telephone' => $data['telephone'] ?? ($compte->getTelephone() ?? null),
              'solde' => $data['solde'] ?? ($compte->getSolde() ?? 0),
              'personne_id' => $personneId,

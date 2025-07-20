@@ -31,18 +31,20 @@ class CompteService extends AbstractService {
                 $personneId = $data['personne'];
             }
         }
-        if (empty($personneId) || !is_string($personneId)) {
-          
+        if (empty($personneId)) {
+            error_log('Echec creation compte: personne_id manquant ou vide. Data: ' . print_r($data, true));
             return false;
         }
-        
         $insertData = [
-            'id' => $data['id'] ?? null,
             'telephone' => $data['telephone'] ?? null,
             'solde' => $data['solde'] ?? 0,
-            'personne_id' => $personneId,
+            'personne_id' => (is_numeric($personneId) ? (int)$personneId : $personneId),
             'type_compte' => $data['type_compte'] ?? $data['typeCompte'] ?? null
         ];
-        return $this->compteRepository->insert($insertData);
+        $ok = $this->compteRepository->insert($insertData);
+        if (!$ok) {
+            error_log('Echec creation compte: insertData = ' . print_r($insertData, true));
+        }
+        return $ok;
     }
 }

@@ -43,7 +43,6 @@ class PersonneService extends AbstractService {
             $personne->setId((int)$personneId);
 
             $compteData = [
-                'id' => uniqid(),
                 'telephone' => $data['telephone'],
                 'solde' => 0,
                 'personne' => $personne,

@@ -43,3 +43,173 @@ Stack trace:
 
 [20-Jul-2025 18:23:29 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
 [20-Jul-2025 18:23:59 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:42:30 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:43:37 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:44:00 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:44:58 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:45:44 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 20:50:00 UTC] PersonneRepository::insert data: Array
+(
+    [id] => 1
+    [telephone] => 771411251
+    [password] => $2y$10$/YNuXLqdW8z.fSNs5YhZSOVcSxPrPZzV08F/JABohYyaRA9gNMV3C
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d566e9b14a8.25147452.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d566e9b1f67.15176542.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+    [comptes] => Array
+        (
+        )
+
+)
+
+[20-Jul-2025 20:50:38 UTC] PersonneRepository::insert data: Array
+(
+    [id] => 1
+    [telephone] => 771411251
+    [password] => $2y$10$riekdbdmTzFeWyVfQ1ZPluJowj6q3rsv5VWztTq/8Sl2ADCKt79Jy
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d56941bb339.00523632.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d56941bbc16.82687958.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+    [comptes] => Array
+        (
+        )
+
+)
+
+[20-Jul-2025 21:05:45 UTC] PersonneRepository::insert data: Array
+(
+    [id] => 1
+    [telephone] => 771411251
+    [password] => $2y$10$trUHzkA.0urhMxD84wOjuOlG/s7cKpqukXFoJdtBneTH6yHg7Zj/W
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5a1f79c961.10565918.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5a1f79d785.64166791.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+    [comptes] => Array
+        (
+        )
+
+)
+
+[20-Jul-2025 21:18:43 UTC] PersonneRepository::insert data: Array
+(
+    [id] => 1
+    [telephone] => 771411251
+    [password] => $2y$10$E/E7azFQ6A9eaWyEmV3d5eSVyJDgS3.aDoWR/5MTShU.OAEdlDmoq
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5d3314d495.91668459.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5d3314e352.59024617.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+    [comptes] => Array
+        (
+        )
+
+)
+
+[20-Jul-2025 21:21:28 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 771411251
+    [password] => $2y$10$lVE6dH5EJYmq8erMx9g3ouMgtkh.rFzVX6cWdDNgHJmn7ZNbZ8QQK
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5dd892ad31.09231656.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5dd892b7f7.88565926.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+)
+
+[20-Jul-2025 21:23:18 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 771411251
+    [password] => $2y$10$iFT8IrAC1yewO4MosAouSucB9WAL5UKdN5RpvRbwnUtazWMs2rvTW
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5e466992b1.51580292.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5e4669a041.93114955.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+)
+
+[20-Jul-2025 21:27:21 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 771411251
+    [password] => $2y$10$cCAlJ88hfKUOlXEWwKIgoekD6KXViVyq5hOizP7TjKPnyl/iMW.kO
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5f39afd780.34483727.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5f39afdf30.96220023.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+)
+
+[20-Jul-2025 21:27:21 UTC] Echec inscription: $data = Array
+(
+    [telephone] => 771411251
+    [password] => tapha
+    [password_confirm] => tapha
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5f39afd780.34483727.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d5f39afdf30.96220023.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+)
+ | erreurs session = Array
+(
+    [global] => Array
+        (
+            [0] => Erreur lors de la création du compte principal.
+        )
+
+)
+
+[20-Jul-2025 21:33:59 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 771411251
+    [password] => $2y$10$uSjPl0g3.0NVhPHa3HM2ueFFLV7S71XUOSBdH4/cta5RpWGq/FVhC
+    [num_identite] => 1234567890123
+    [photo_recto] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d60c735b4e6.84925200.JPG
+    [photo_verso] => /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d60c735bdb5.53741312.JPG
+    [prenom] => tapha
+    [nom] => ndiaye
+    [adresse] => dakar
+    [type_personne] => client
+)
+
+[20-Jul-2025 21:34:28 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/moustapha-ndiaye/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[20-Jul-2025 21:44:42 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[20-Jul-2025 21:46:57 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[20-Jul-2025 21:47:55 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 782463262
+    [password] => $2y$10$ckcPnvLkpqstkUfT4sJq9OUBUgdsgEDjya.YGhBfxrCtFD9e/V8Bq
+    [num_identite] => 1122666666666
+    [photo_recto] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d640ad91d28.21420212.png
+    [photo_verso] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d640ad924a3.44344381.png
+    [prenom] => Fallou
+    [nom] => Senghor
+    [adresse] => Patte d'oie
+    [type_personne] => client
+)
+
+[20-Jul-2025 21:47:58 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[20-Jul-2025 21:48:10 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[20-Jul-2025 21:48:44 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
