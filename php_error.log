@@ -1,11 +1,17 @@
-[20-Jul-2025 12:15:57 UTC] PersonneRepository::insert data: Array
+[20-Jul-2025 18:06:52 UTC] PHP Warning:  require_once(/home/gallas/Bureau/sa/maxitsa_odc/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/gallas/Bureau/sa/maxitsa_odc/public/index.php on line 12
+[20-Jul-2025 18:06:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/gallas/Bureau/sa/maxitsa_odc/public/../vendor/autoload.php' (include_path='.:/usr/share/php') in /home/gallas/Bureau/sa/maxitsa_odc/public/index.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/gallas/Bureau/sa/maxitsa_odc/public/index.php on line 12
+[20-Jul-2025 18:08:13 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 18:20:24 UTC] PersonneRepository::insert data: Array
 (
     [id] => 1
     [telephone] => 782463262
-    [password] => $2y$10$n95d/2FTrkiyam46GkSgNOZYidyw5pr2J.CwO0nvTbn7SkRx5Zqwy
-    [num_identite] => 1122666666666
-    [photo_recto] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687cddfdb21628.86594497.png
-    [photo_verso] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687cddfdb22050.86527581.png
+    [password] => $2y$10$4gjCBMlGdqmPJ/LyfdrR8ufVNR0YsXdDHeQaK9KJyRLUVOXCZJXgi
+    [num_identite] => 1111111111111
+    [photo_recto] => /home/gallas/Bureau/sa/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d336876ec07.79390880.png
+    [photo_verso] => /home/gallas/Bureau/sa/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d336876f387.73368026.png
     [prenom] => Fallou
     [nom] => Senghor
     [adresse] => Patte d'oie
@@ -16,14 +22,15 @@
 
 )
 
-[20-Jul-2025 12:23:35 UTC] PersonneRepository::insert data: Array
+[20-Jul-2025 18:22:22 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 18:23:01 UTC] PersonneRepository::insert data: Array
 (
     [id] => 1
     [telephone] => 782463262
-    [password] => $2y$10$Txod8QkPNPEkSVvNZOuFh.Cfqp1crMxpT23QQiFE9GIoAVwnqE4Wu
-    [num_identite] => 1122666666666
-    [photo_recto] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687cdfc7cb2800.34755348.png
-    [photo_verso] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687cdfc7cb3090.50344186.png
+    [password] => $2y$10$6ecDcAysvd4jy3Q1Q/AwA.ABiBInusDJzLIk.UtinlaTgRWUy9tqi
+    [num_identite] => 1233334333333
+    [photo_recto] => /home/gallas/Bureau/sa/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d34054cdec7.45680873.png
+    [photo_verso] => /home/gallas/Bureau/sa/maxitsa_odc/src/controller/../../../public/images/uploads/img_687d34054ce583.67018145.png
     [prenom] => Fallou
     [nom] => Senghor
     [adresse] => Patte d'oie
@@ -34,98 +41,5 @@
 
 )
 
-[20-Jul-2025 12:25:49 UTC] PersonneRepository::insert data: Array
-(
-    [id] => 1
-    [telephone] => 782463262
-    [password] => $2y$10$aH2frfu96JedlCzYm0Ojru2PIwAv5QrFiusa8oy7N.10ri72QYL56
-    [num_identite] => 1234554444444
-    [photo_recto] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687ce04d1ee244.34433457.png
-    [photo_verso] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687ce04d1ee857.96366223.png
-    [prenom] => Fallou
-    [nom] => Senghor
-    [adresse] => Patte d'oie
-    [type_personne] => client
-    [comptes] => Array
-        (
-        )
-
-)
-
-[20-Jul-2025 12:35:09 UTC] PersonneRepository::insert data: Array
-(
-    [id] => 1
-    [telephone] => 782463262
-    [password] => $2y$10$VnbZlJqgyytSUox9ZGtc/.Hdcjhkp3AjmPSirgKgTN6LNEqx3WF/q
-    [num_identite] => 1234554444444
-    [photo_recto] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687ce27d0cae33.29849939.png
-    [photo_verso] => /home/gallas/Bureau/maxitsa (2)/src/controller/../../../public/images/uploads/img_687ce27d0cb5c7.47939940.png
-    [prenom] => Fallou
-    [nom] => Senghor
-    [adresse] => Patte d'oie
-    [type_personne] => client
-    [comptes] => Array
-        (
-        )
-
-)
-
-[20-Jul-2025 12:40:22 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/maxitsa (2)/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/maxitsa (2)/src/service/PersonneService.php on line 70
-[20-Jul-2025 12:43:39 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:16
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 16
-[20-Jul-2025 12:44:09 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:16
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 16
-[20-Jul-2025 12:47:22 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:16
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 16
-[20-Jul-2025 12:51:22 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:13
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 13
-[20-Jul-2025 12:52:20 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:13
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 13
-[20-Jul-2025 12:53:53 UTC] PHP Fatal error:  Uncaught TypeError: Maxitsa\Entity\Transaction::__construct(): Argument #1 ($id) must be of type int, string given, called in /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php on line 118 and defined in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php:13
-Stack trace:
-#0 /home/gallas/Bureau/maxitsa (2)/src/service/TransactionService.php(118): Maxitsa\Entity\Transaction->__construct()
-#1 /home/gallas/Bureau/maxitsa (2)/src/controller/HomeController.php(59): Maxitsa\Service\TransactionService->transferer()
-#2 [internal function]: Maxitsa\Controller\HomeController->transfert()
-#3 /home/gallas/Bureau/maxitsa (2)/app/core/Router.php(40): call_user_func()
-#4 /home/gallas/Bureau/maxitsa (2)/public/index.php(22): Maxitsa\Core\Router->dispatch()
-#5 {main}
-  thrown in /home/gallas/Bureau/maxitsa (2)/src/entity/Transaction.php on line 13
-[20-Jul-2025 13:07:30 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/maxitsa (2)/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/maxitsa (2)/src/service/PersonneService.php on line 70
-[20-Jul-2025 13:07:52 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/maxitsa (2)/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/maxitsa (2)/src/service/PersonneService.php on line 70
-[20-Jul-2025 13:14:37 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/maxitsa (2)/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/maxitsa (2)/src/service/PersonneService.php on line 70
-[20-Jul-2025 13:14:55 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/maxitsa (2)/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/maxitsa (2)/src/service/PersonneService.php on line 70
+[20-Jul-2025 18:23:29 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
+[20-Jul-2025 18:23:59 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Bureau/sa/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Bureau/sa/maxitsa_odc/src/service/PersonneService.php on line 70
