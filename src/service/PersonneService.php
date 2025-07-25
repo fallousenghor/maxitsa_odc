@@ -30,7 +30,7 @@ class PersonneService extends AbstractService {
             $okPersonne = $this->personneRepository->insert($personne);
 
             if (!$okPersonne) {
-                // Récupère l'erreur PDO stockée par PersonneRepository
+             
                 $sessionErrors = \Maxitsa\Core\Session::getInstance()->get('errors');
                 $errorMsg = isset($sessionErrors['global']) ? implode(' | ', $sessionErrors['global']) : "Erreur lors de l'insertion de la personne.";
                 \Maxitsa\Core\Session::getInstance()->set('errors', ['global' => [$errorMsg]]);
@@ -38,7 +38,7 @@ class PersonneService extends AbstractService {
                 return false;
             }
 
-            // Récupérer l'id généré et le mettre dans l'objet Personne
+           
             $personneId = $db->lastInsertId();
             $personne->setId((int)$personneId);
 

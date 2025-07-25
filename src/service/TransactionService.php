@@ -14,7 +14,7 @@ class TransactionService extends AbstractService {
     }
 
     private function generateSafeIntId(): int {
-        return random_int(1_000_000, 2_000_000_000); // Dans la limite de PostgreSQL INT
+        return random_int(1_000_000, 2_000_000_000); 
     }
 
     public function annulerTransfert(string $transactionId) {

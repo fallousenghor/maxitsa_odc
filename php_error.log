@@ -214,3 +214,32 @@ Stack trace:
 [20-Jul-2025 21:48:10 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
 [20-Jul-2025 21:48:44 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
 [20-Jul-2025 22:17:10 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[23-Jul-2025 07:29:22 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[23-Jul-2025 09:23:50 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69
+[25-Jul-2025 07:49:50 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 782463200
+    [password] => $2y$10$xDhNiOMJQGypMcWoUL6HrOmRDeRzTMnnuakBMPC3zpAtjaK/xAvMO
+    [num_identite] => 1654321098765
+    [photo_recto] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_6883371ea06a21.66371009.png
+    [photo_verso] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_6883371ea089a4.59064157.png
+    [prenom] => Ibrahima
+    [nom] => SALL
+    [adresse] => Kaolack
+    [type_personne] => client
+)
+
+[25-Jul-2025 10:19:44 UTC] PersonneRepository::insert filtered: Array
+(
+    [telephone] => 777777777
+    [password] => $2y$10$tljqp6u4sD0aoadVfZcIiOiRRFGBUL.jL/MaInAP9B.LUuVIZIst.
+    [num_identite] => 1765432109876
+    [photo_recto] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_68835a40a1eac1.23747764.png
+    [photo_verso] => /home/gallas/Téléchargements/maxitsa_odc/src/controller/../../../public/images/uploads/img_68835a40a1f6b4.32916887.png
+    [prenom] => Fatou
+    [nom] => NDIAYE
+    [adresse] => Thiès
+    [type_personne] => client
+)
+
+[25-Jul-2025 10:19:58 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/gallas/Téléchargements/maxitsa_odc/app/core/abstract/AbstractController.php on line 3) in /home/gallas/Téléchargements/maxitsa_odc/src/service/PersonneService.php on line 69

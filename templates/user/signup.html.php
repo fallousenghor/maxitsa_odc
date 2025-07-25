@@ -441,3 +441,5 @@
             }
         }
     </style>
+
+    <script src="../js/forms.js"></script>

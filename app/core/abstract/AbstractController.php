@@ -25,4 +25,13 @@ abstract class AbstractController{
     }
 
     abstract public function create();
+
+     public function checkAuth() {
+        $user = $_SESSION['user'] ?? null;
+        if (!$user) {
+            redirect('login');
+            return false;
+        }
+        return $user;
+    }
 }

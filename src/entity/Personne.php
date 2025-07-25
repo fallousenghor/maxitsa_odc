@@ -19,7 +19,7 @@ class Personne extends AbstractEntity {
     protected string $adresse;
     protected array $comptes = [];
     protected string $typePersonne;
-    // Getters
+   
     public function getId(): int { return $this->id; }
     public function getTelephone(): string { return $this->telephone; }
     public function getPassword(): string { return $this->password; }
@@ -32,7 +32,7 @@ class Personne extends AbstractEntity {
     public function getComptes(): array { return $this->comptes; }
     public function getTypePersonne(): string { return $this->typePersonne; }
 
-    // Setters
+   
     public function setId(int $id): void { $this->id = $id; }
     public function setTelephone(string $telephone): void { $this->telephone = $telephone; }
     public function setPassword(string $password): void { $this->password = $password; }

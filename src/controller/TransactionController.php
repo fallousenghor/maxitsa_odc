@@ -6,39 +6,32 @@ use Maxitsa\Abstract\AbstractController;
 use Maxitsa\Service\TransactionService;
 
 class TransactionController extends AbstractController {
-    private function checkAuth() {
-        $user = $_SESSION['user'] ?? null;
-        if (!$user) {
-            redirect('login');
-            return false;
-        }
-        return $user;
-    }
-    public function annulerTransfert()
-    {
-        if (!$this->checkAuth()) {
-            return;
-        }
-        $transactionId = $_POST['transaction_id'] ?? null;
-        $message = null;
-        if ($transactionId) {
-            $service = new TransactionService();
-            $result = $service->annulerTransfert($transactionId);
-            if ($result === true) {
-                $message = "Transfert annulé et fonds retournés !";
-            } else {
-                $message = "Erreur : " . $result;
-            }
-        } else {
-            $message = "Identifiant de transaction manquant.";
-        }
+   
+    // public function annulerTransfert()
+    // {
+    //     if (!$this->checkAuth()) {
+    //         return;
+    //     }
+    //     $transactionId = $_POST['transaction_id'] ?? null;
+    //     $message = null;
+    //     if ($transactionId) {
+    //         $service = new TransactionService();
+    //         $result = $service->annulerTransfert($transactionId);
+    //         if ($result === true) {
+    //             $message = "Transfert annulé et fonds retournés !";
+    //         } else {
+    //             $message = "Erreur : " . $result;
+    //         }
+    //     } else {
+    //         $message = "Identifiant de transaction manquant.";
+    //     }
        
-        $transactions = $this->getRecentTransactions();
-        $this->renderHtml('layout/tout.historique.web.php', [
-            'transactions' => $transactions,
-            'message' => $message
-        ], "Tout l'historique");
-    }
+    //     $transactions = $this->getRecentTransactions();
+    //     $this->renderHtml('layout/tout.historique.web.php', [
+    //         'transactions' => $transactions,
+    //         'message' => $message
+    //     ], "Tout l'historique");
+    // }
 
     public function transfert()
     {
@@ -100,7 +93,7 @@ class TransactionController extends AbstractController {
             return;
         }
         $transactions = $this->getRecentTransactions();
-        $this->renderHtml('layout/tout.historique.web.php', ['transactions' => $transactions], "Tout l'historique");
+        $this->renderHtml('layout/tout.historique.web.php', ['transactions' => $transactions]);
     }
 
     public function transactions()
