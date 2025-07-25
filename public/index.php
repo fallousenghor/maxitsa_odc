@@ -21,3 +21,20 @@ App::loadDependencies(__DIR__ . '/../app/config/services.yml');
 $router = new Router();
 $router->dispatch($_SERVER['REQUEST_URI']);
 
+
+
+$host = getenv("DB_HOST");
+$db   = getenv("DB_NAME");
+$user = getenv("DB_USER");
+$pass = getenv("DB_PASSWORD");
+$port = getenv("DB_PORT");
+
+$dsn = "pgsql:host=$host;port=$port;dbname=$db";
+
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+    echo "Connexion réussie à la base PostgreSQL Render !";
+} catch (PDOException $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
+}
+?>
