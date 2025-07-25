@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: mon-app-php
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    region: frankfurt
+    healthCheckPath: /
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: mon-postgres
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: mon-postgres
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: mon-postgres
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: mon-postgres
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: mon-postgres
+          property: password
+
+databases:
+  - name: mon-postgres
+    plan: free
+    region: frankfurt
