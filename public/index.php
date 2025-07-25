@@ -1,10 +1,6 @@
+<!-- 
+<php
 
-<?php
-// Debug : afficher et loguer toutes les erreurs PHP
-ini_set('display_errors', 1);
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/../php_error.log');
-error_reporting(E_ALL);
 
 use Maxitsa\Core\Router;
 
@@ -24,4 +20,8 @@ $router->dispatch($_SERVER['REQUEST_URI']);
 
 
 
+  -->
 
+  <?php
+echo "Hello World";
+?>
