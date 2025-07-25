@@ -1,5 +1,5 @@
-<!-- 
-<php
+
+<?php
 
 
 use Maxitsa\Core\Router;
@@ -20,8 +20,4 @@ $router->dispatch($_SERVER['REQUEST_URI']);
 
 
 
-  -->
-
-  <?php
-echo "Hello World";
-?>
+ 
