@@ -148,20 +148,22 @@
             </a>
 
             <!-- Faire un Paiement Card -->
-            <div class="card-hover gradient-bg rounded-2xl p-8 text-white shadow-xl cursor-pointer">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-bold">Faire un paiement</h2>
-                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                        <i class="fas fa-credit-card text-2xl"></i>
+            <a href="/paiement-woyofal" style="text-decoration: none;">
+                <div class="card-hover gradient-bg rounded-2xl p-8 text-white shadow-xl cursor-pointer">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold">Faire un paiement</h2>
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-credit-card text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="inline-flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-lg">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span class="font-medium">Payer</span>
+                        </div>
                     </div>
                 </div>
-                <div class="text-right">
-                    <div class="inline-flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-lg">
-                        <i class="fas fa-dollar-sign"></i>
-                        <span class="font-medium">Payer</span>
-                    </div>
-                </div>
-            </div>
+            </a>
 
             <!-- Derniers Transactions Card -->
             <a href="/transactions" style="text-decoration: none;">

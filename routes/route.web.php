@@ -11,6 +11,7 @@ return [
         '/signup' => [UserController::class, 'signup'],
         '/login' => [UserController::class, 'login'],
         '/accueil' => [HomeController::class, 'index',"middlewares" => ['auth']],
+        '/paiement-woyofal' => [\Maxitsa\Controller\WoyofalController::class, 'showForm', "middlewares" => ['auth']],
         '/transactions' => [TransactionController::class, 'transactions',"middlewares" => ['auth']],
         '/tout-historique' => [TransactionController::class, 'toutHistorique', "middlewares" => ['auth']],
         '/transfert' => [TransactionController::class, 'showTransfertForm', "middlewares" => ['auth']],
@@ -24,6 +25,7 @@ return [
         '/changer-compte' => [HomeController::class, 'changerCompte'],
         '/annuler-transfert' => [TransactionController::class, 'annulerTransfert', "middlewares" => ['auth']],
         '/transfert' => [TransactionController::class, 'transfert', "middlewares" => ['auth']],
+        '/paiement-woyofal' => [\Maxitsa\Controller\WoyofalController::class, 'paiement', "middlewares" => ['auth']],
     ]
 ];
 
