@@ -15,7 +15,7 @@ CREATE TABLE compte (
     id SERIAL PRIMARY KEY,
     telephone VARCHAR(20) NOT NULL,
     solde NUMERIC(15,2) NOT NULL DEFAULT 0,
-    personne_id UUID NOT NULL,
+    personne_id INTEGER NOT NULL,
     type_compte VARCHAR(20) NOT NULL,
     FOREIGN KEY (personne_id) REFERENCES personne(id) ON DELETE CASCADE
 );
@@ -23,7 +23,7 @@ CREATE TABLE compte (
 CREATE TABLE transaction (
     id SERIAL PRIMARY KEY,
     montant NUMERIC(15,2) NOT NULL,
-    compte_id UUID NOT NULL,
+    compte_id INTEGER NOT NULL,
  
     type VARCHAR(20) NOT NULL,
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

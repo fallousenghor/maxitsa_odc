@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             const compteur = document.getElementById('compteur').value;
             const montant = Number(document.getElementById('montant').value);
 
-            const response = await fetch('http://localhost:8081/achats', {
+            const response = await fetch('https://appwoyofall.onrender.com/achats', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ numero_compteur: compteur, montant: montant })
