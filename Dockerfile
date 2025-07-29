@@ -21,7 +21,11 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copy app files
+
 COPY . /var/www/html
+
+# Installer les dépendances PHP
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Copy nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
