@@ -1,6 +1,5 @@
 <?php
 namespace Maxitsa\Abstract;
-session_start();
 abstract class AbstractController{
 
   
