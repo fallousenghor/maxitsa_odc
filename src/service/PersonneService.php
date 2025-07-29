@@ -66,7 +66,7 @@ class PersonneService extends AbstractService {
     }
 
     public function connecter($telephone, $password): bool {
-        session_start();
+        // session_start() déjà appelé dans index.php
         $personne = $this->personneRepository->findByTelephone($telephone);
         if ($personne && password_verify($password, $personne['password'])) {
             $_SESSION['user'] = $personne;
